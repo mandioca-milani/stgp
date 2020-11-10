@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Teoria das Organizacoes - Unidade I</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dc2c650d-cb60-4e22-81a8-1b2b6f9e81c1" class="page sans"><header><h1 class="page-title">Teoria das Organizacoes - Unidade I</h1><table class="properties"><tbody></tbody></table></header><div class="page-body"><h2 id="1115c75f-9459-4647-b11d-adc26b5d717c" class="">1.1 Breve histórico das organizações</h2><p id="c2a2b480-91cf-4609-8d8a-99dce164a566" class="">Muitos de nós podemos nos confundir em relação à história da administração ou das teorias da administração, ou mesmo das teorias das organizações, tema de nossa disciplina. Quero chamar sua atenção para o fato de que esta história não começa quando as teorias foram criadas, no início do século XX – trataremos disso mais adiante –, mas, sim, há séculos, antes mesmo do nascimento de Cristo.</p><p id="d88b5893-f28f-49cc-994a-8c776db77d47" class="">Como você pode observar, na atualidade, temos vários monumentos históricos que datam de períodos sequer imaginados por nós. Podemos citar as civilizações antigas do Ocidente e do Oriente, que desde então dispunham de práticas gerenciais em sistemas orientados para o bem comum. Na Antiguidade, os povos sumérios, egípcios, babilônios, hebreus, chineses, gregos, indianos ou romanos são exemplos dessas práticas.</p><p id="3e23418a-5eb4-4bd6-a072-e61fa8555a17" class="">Considerada a população mais antiga da humanidade, a Suméria teve sua estrutura organizada em torno de grandes cidades, as quais eram distribuídas arquitetonicamente no entorno das burocracias sacerdotais e dos templos (JACOBSEN; NETO, 2009, p. 28). Devido à sua localização, entre estas grandes cidades, como você pensa que os sumérios irrigavam uma região tão grande? As terras no entorno das cidades, àquela época, eram tratadas por sistemas de irrigação que funcionavam por meio dos rios próximos.</p><p id="56deb7eb-ea67-473b-9ba8-3c44846854aa" class="">Este é apenas um exemplo. Vamos considerar um período mais “recente”, como o das conhecidas pirâmides do Egito. Você com certeza já ouviu falar nelas e deve se perguntar como foi possível construí-las numa região de tão difícil acesso e com toda aquela estrutura, não é mesmo?</p><p id="97988b19-2ccd-42e7-ad2b-03cf620eb546" class="">A pirâmide de Quéops em Gizé, é a maior pirâmide egípcia, cuja altura original chegava a mais de 140 metros. É a única das Sete Maravilhas do Mundo que permanece de pé.</p><figure id="8ab5ffca-f0e9-45cb-9fb3-c56f35f26bf5" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled.png"><img style="width:318px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled.png"/></a><figcaption>Pirâmide de Quéops, Gizé, Egito</figcaption></figure><p id="344d4afc-90d0-44d1-b0e5-d75ee578a07d" class="">A pirâmide de Quéops foi levantada com nada menos que 2,3 milhões de blocos de pedra que pesam cerca de 2,5 a 60 toneladas cada. Diz-se na história que demorou cerca de 20 anos para ficar pronta. O que não seria desta obra, senão a gestão? Afinal, quem a construiu, o fez a mando de algum gestor/governador da época, neste caso, um faraó.</p><figure id="e1bda5e9-8cf3-4f68-ac45-4136f10a61ab" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%201.png"><img style="width:1170px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%201.png"/></a><figcaption>Muralha da China.</figcaption></figure><p id="a6ee7064-2565-4aa9-8fff-ee23c0a8ae6e" class="">Mas, professor, o que tudo isso tem a ver com as teorias da administração e das organizações? Simples! Imagine que, para construir qualquer obra grandiosa naquela época, era preciso uma engenharia muito bem elaborada e equipes de trabalho organizadas e engajadas com o propósito final. Para isso, grandes planos foram feitos e métodos de organização gerencial eram colocados em prática; senão, nada daria certo.</p><p id="70b8522a-e961-46a9-88cb-145c02763a04" class="">Outras obras – como a Muralha da China (215 a. C.) – e as guerras existentes em períodos remotos são exemplos da utilização de práticas gerenciais, pois sem elas seria impossível conviver, e o caos seria instalado.</p><p id="7d85aff2-3b6b-46e1-842d-85247cdf2ac0" class="">Cabe destacar também o papel dos exércitos e da Igreja Católica, que por muito tempo praticam, de forma organizada, sua gestão e influência perante a sua população.</p><p id="bfe18de3-f4c9-4978-ae54-4761ddb4e483" class="">Portanto, exemplos não faltam para citar práticas gerenciais datadas de períodos sequer imaginados por nós, como na época das civilizações grega e romana – que já se podiam considerar organizações, uma vez que administravam recursos, pessoas e estruturas para o bem comum.</p><p id="6726623b-8ea2-4464-8595-e8980b9637e0" class="">Veremos adiante as teorias mais conhecidas, que deram origem ao que conhecemos e vivemos hoje, no mundo contemporâneo, no qual a gestão é tão necessária quanto em tempos anteriores.</p><hr id="143387f4-d491-470f-bf49-7370652cbdcd"/><h2 id="3317de42-38c2-4d46-ba10-d7b891801b80" class="">1.2 Organização</h2><p id="0a1cdb1a-4c55-46ae-83c4-b76f6e195dd5" class="">Antes de falarmos das teorias das organizações, falemos de organizações.</p><p id="7e0d7d4d-2d0f-4f6e-af5f-7187c3c2c277" class="">Uma organização consiste em um arranjo sistemático de duas ou mais pessoas que cumprem papéis formais e compartilham de objetivos comuns (ROBBINS, 2005 apud JACOBSEN; NETO, 2009, p. 37).</p><p id="d3343b55-c8d5-4dd7-be3f-68ccf894dc7c" class="">Ou seja, uma organização é formada por duas ou mais pessoas que buscam objetivos comuns e os resultados desses objetivos trarão resultados para ambos. As empresas, privadas e públicas, atuam com diversas pessoas e recursos dos mais diversos; cada uma delas tem objetivos voltados não somente ao lucro, mas buscam atender a uma necessidade de algo ou de alguém.</p><p id="3a4004b8-b952-4bff-a551-cb33bc1aad63" class="">No caso das públicas, o atendimento é voltado à população em geral nos mais diversos serviços, como saúde, educação, segurança e saneamento. No caso das privadas, “o céu é o limite”, uma vez que estão voltadas para atender qualquer necessidade surgida. Ambas buscam esse atendimento e, para tal, precisam estar atentas ao processo gerencial para se manter no mercado.</p><p id="3f6abda6-adaf-43f4-a1b0-0acae7f63d02" class="">Muitos pensam que o governo, por ser público, não necessita de recursos – mas se engana: o governo é mantido exatamente pela arrecadação de impostos pagos por nós, cidadãos; logo, depende desta arrecadação para poder prestar seus serviços.</p><p id="65a743f1-9bec-47ac-926c-e254c0d09bb0" class="">Partimos, então, para a primeira teoria a ser analisada e que marcou época com sua forma de lidar com o trabalhador. Você perceberá, ao longo das leituras sobre essas teorias, que muito delas ainda se aplica nas organizações do mundo pós-moderno.</p><hr id="555fef79-be47-4210-9848-4e0e26d43f64"/><h2 id="06dc1f22-5323-4a3a-94ce-0a50314d6da1" class="">1.3 Teoria científica</h2><p id="0b70e8c3-d9ef-4998-ba49-b36cdb75940c" class="">A administração moderna que conhecemos hoje surgiu a partir da Revolução Industrial, na segunda metade do século XVIII. Através dela, os industriais da época perceberam que precisavam de processos mais padronizados para seus meios de produção, o que os tornaria mais eficazes e, consequentemente, mais lucrativos. Porém, somente depois de um período muito grande, já no século XIX, é que surgiria alguém com pensamento mais voltado a atender os anseios dos industriais e seus processos de produção.<strong> </strong></p><p id="eeb447f6-313d-4891-a7c9-caa3349ab45e" class="">Leia mais sobre a Revolução Industrial em: <a href="https://brasilescola.uol.com.br/historiag/revolucao-industrial.htm">https://brasilescola.uol.com.br/historiag/revolucao-industrial.htm</a></p><figure id="c9515bbb-ad44-4392-b41c-6c926ac4c702" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%202.png"><img style="width:182px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%202.png"/></a><figcaption>Frederick Taylor</figcaption></figure><p id="94322df4-ed4e-4dc8-88e0-0faa4e7bbcf8" class=""><strong>Frederick Winslow Taylor</strong> (1856-1915), conhecido como o pai da administração científica, é natural da Filadélfia, nos Estados Unidos. Taylor, como é mais conhecido, percebeu os problemas oriundos da Revolução Industrial ao identificar uma forma de eliminar os desperdícios da ação produtiva nas indústrias norte-americanas à época e buscou uma forma de aumentar de forma considerável os <strong>níveis de produtividade</strong> , por meio de métodos e técnicas de engenharia industrial (CHIAVENATO, 1987a).</p><figure id="ae502d45-c471-47d0-a0cd-231102cfcb3b" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%203.png"><img style="width:320px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%203.png"/></a></figure><p id="cf1a1b72-4c43-4dea-8bf1-c22f4e831f1b" class="">A maior preocupação de Taylor era <strong>aumentar a eficiência</strong> da indústria por meio da <strong>racionalização do trabalho do operário</strong>. Ou seja, se você, aluno, trabalha ou já trabalhou em alguma fábrica, sabe bem o que quero dizer. Na verdade, o pensamento à época era de que os operários que estavam na linha de frente da produção eram mais importantes para a indústria do que a própria gestão em si. O objetivo era aumentar a produtividade da empresa por meio do aumento de eficiência no nível operacional, isto é, no nível dos operários (CHIAVENATO, 2014, p. 52). Mas muita calma nessa hora! Não estou querendo dizer que se pensava no operário como pessoa, mas como uma “máquina”.</p><figure id="d20623af-04c5-43ab-867b-61d7b380ae39" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%204.png"><img style="width:539px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%204.png"/></a></figure><p id="b92fe7e1-09a6-4e5d-b627-5ac20bd07c1e" class="">A <strong>ênfase estava voltada à divisão do trabalho dos operários</strong>, uma vez que que eles ocupavam eram consideradas a base da organização. Ou seja, a abordagem da administração científica estava focada numa abordagem do operário para o supervisor e o gerente (de baixo para cima), e do operário e seus cargos (das partes) para a organização (o todo).</p><p id="2a290e02-8b98-4c2e-aee4-10aeb847c751" class="">Segundo Chiavenato (2014, p. 52), predominava a atenção para o método de trabalho, para os movimentos necessários à execução de uma tarefa e para o tempo-padrão determinado para sua execução. Esse cuidado analítico e detalhista permitia a especialização do operário e o reagrupamento de movimentos, operações, tarefas, cargos, etc., que constituem a chamada Organização Racional do Trabalho (ORT). A <strong>ênfase nas tarefas</strong> é a principal característica desta teoria.</p><p id="001ce059-280e-4be7-bc69-6b22487eb309" class="">Taylor, em sua primeira obra, Shop Management (Administração de Oficinas), publicado em 1903, descrevia exatamente sua teoria sobre as técnicas de racionalização do trabalho do operário de chão de fábrica, por meio do estudo de<strong> “tempos e movimentos”</strong>. Ele havia começado de baixo no sistema de produção, exatamente com os operários no nível de execução – o que tornou possível analisar as tarefas de cada operador, decompondo os movimentos de processos de trabalho para, em seguida, aperfeiçoá-los e racionalizá-los. Decorre disso pensar que o homem trabalhador era tratado como uma máquina, e não como pessoa, pois seus movimentos eram totalmente programados para determinada tarefa, dentro de um limite de tempo previsto. De uma forma bem simples, é como se hoje alguém pudesse afirmar que, em X horas, você é capaz de produzir X peças ou executar X operações em X quantidade de tempo. Loucura, não?</p><p id="58a28e05-1e81-40e8-acdb-342eee25214e" class="">Difícil imaginar que, nos dias atuais, se possa pensar dessa forma. Principalmente em momentos nos quais toda a organização precisa estar alinhada aos objetivos e metas para alcançar os resultados. O objetivo desta teoria era mesmo o de eliminar os desperdícios e o improviso das indústrias no período pós-Revolução Industrial e aumentar sua eficácia – sem, no entanto, pensar no trabalhador como pessoa.</p><figure id="903cd7bd-8d6f-440d-b7f1-3d9b399cbdbd" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%205.png"><img style="width:783px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%205.png"/></a></figure><p id="1e9ca08a-9abb-4de5-950d-fb49e12d48ea" class="">Caso você não saiba, um filme clássico do cinema mundial foi estrelado por Charles Chaplin, em 1936, cujo tema principal era o modelo de produção fordista. Em Tempos Modernos, os trabalhadores realizavam tarefas simples, mas de forma repetitiva, uma vez que as grandes máquinas eram as responsáveis por serviços de maios complexidade. Assista ao filme quando possível, e você conseguirá imaginar o que realmente era uma fábrica naquele período, início das teorias da abordagem clássica. O filme está disponível na íntegra em:</p><figure id="93116953-830a-4a7b-8818-3ba1ae72649e"><div class="source"><a href="https://youtu.be/HAPilyrEzC4">https://youtu.be/HAPilyrEzC4</a></div></figure><p id="49275983-d884-441b-864c-b95c16c902e7" class="">Por falar em abordagem clássica, outra teoria bastante conhecida é, exatamente, a teoria clássica de que falaremos mais à frente.<strong> </strong></p><hr id="4ed901bc-370e-4c98-b943-936d48b37333"/><h2 id="6854e237-d1ac-4c6c-981c-74ecc34a1e5a" class="">1.3.1 Fordismo</h2><p id="e5c58ffb-942c-4568-ab7f-ffdd76a27b8a" class="">Provavelmente, o mais conhecido de todos os precursores da administração científica é Henry Ford (1863-1947), que iniciou sua vida como mecânico. Ford projetou um modelo de carro e, em 1899, fundou sua primeira fábrica de automóveis, que logo depois foi fechada. Sem desanimar, fundou, em 1903, a Ford Motor Co. Sua ideia era popularizar um produto antes artesanal e destinado a milionários, ou seja, vender carros a preços populares, com assistência técnica garantida, revolucionando a estratégia comercial da época. Entre 1905 e 1910, Ford promoveu a grande inovação do século XX: a produção em massa.</p><p id="52e8eb6f-4cdd-4ccc-8d6b-3a2479f3cff6" class="">Embora não tenha inventado o automóvel, nem mesmo a linha de montagem, Ford inovou na organização do trabalho – a produção do maior número de produtos acabados com a maior garantia de qualidade e pelo menor custo possível. Essa inovação teve mais impacto sobre a maneira de viver do homem do que muitas das maiores invenções do passado da humanidade. Em 1913, já fabricava 800 carros por dia. Em 1914, repartiu com seus empregados uma parte do controle acionário da empresa. Estabeleceu o salário mínimo de cinco dólares por dia e jornada diária de oito horas, quando, na época, a jornada variava entre dez e 12 horas. Em 1926, já tinha 88 fábricas e empregava 150 mil pessoas, fabricando dois milhões de carros por ano.</p><figure id="d4f58916-1a8e-4f9c-bc14-b4b0061caea5" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%206.png"><img style="width:930px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%206.png"/></a><figcaption>Fábrica de automóvel.</figcaption></figure><p id="2f165734-b70c-432c-a1f9-2086b816fbbc" class="">Num movimento que ficou conhecido como “fordismo”, a racionalização da produção proporcionou a linha de montagem, que permite a produção em série. Na produção em série, ou em massa, o produto é padronizado, bem como o maquinário, o material, a mão de obra e o desenho do produto, o que proporciona um custo mínimo de produção em grandes quantidades, cuja condição precedente é a capacidade de consumo em massa, real ou potencial, na outra ponta (CHIAVENATO, 2014, p. 68-9).</p><hr id="8b74895c-dd3d-40b2-aac4-5d1d07c83e38"/><h2 id="8ab60083-ccbd-400b-9477-f25ad00b6989" class="">1.4 Teoria clássica</h2><p id="c1bcd687-bad2-4160-869b-01658bdaa77c" class="">A teoria clássica faz parte da abordagem clássica da administração, que também é composta pela teoria da burocracia – que veremos logo mais. Estas teorias são consideradas clássicas por serem pioneiras nos estudos para a melhoria dos processos operacionais das fábricas e também da parte administrativa e estrutural das organizações no início do século XX.</p><p id="d2f5b065-7f38-4329-8659-eef3fdd4e572" class="">Se a teoria científica se baseava na ênfase nas tarefas realizadas pelos operários, a teoria clássica estava voltada à ênfase na estrutura que a organização deveria ter para se tornar eficiente em seus processos. A teoria clássica não tinha a visão somente do operário para com os seus superiores (visão de baixo para cima), mas sim da inter-relação de todas as partes envolvidas, tanto as seções e os departamentos quanto as pessoas.</p><figure id="83e002cf-9122-459b-8bf3-3a1b796c97af" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%207.png"><img style="width:280px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%207.png"/></a><figcaption>Henri Fayol.</figcaption></figure><p id="5d590c2b-ccf1-4375-86cb-6a11cff0df8f" class="">Henri Fayol (1841-1925) foi o fundador da teoria clássica da administração. Francês, nascido em Constantinopla, engenheiro como Taylor, viveu o período das consequências da Revolução Industrial e claro, da Primeira Guerra Mundial. Sua Teoria foi exposta no livro Administration Industrielle ét Générale, publicado em 1916 (CHIAVENATO, 2014, p. 85).</p><p id="4222f47f-df08-467c-a9ce-98055ca226d1" class="">Fayol foi o precursor do ato de administrar e criou os conceitos do processo administrativo, que até hoje, com as devidas modificações, são trabalhados pelas empresas. Eles são conhecidos como as funções do administrador, ou simplesmente funções administrativas; confira quais são no quadro abaixo.</p><figure id="ef75a000-7765-43ab-b1af-3285fc473d39" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%208.png"><img style="width:535px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%208.png"/></a><figcaption>Fonte: adaptado de CHIAVENATO, 2014, p. 86.</figcaption></figure><figure id="b9fe2eb5-1559-4f8c-9788-09a760a1baad" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%209.png"><img style="width:505px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%209.png"/></a><figcaption>Fonte: o autor.</figcaption></figure><p id="ac6c6d0e-e624-44f0-8c24-e00a13e7cb90" class="">Ufa, quantas teorias, cheias de itens, não é mesmo? Mas fique tranquilo: se você perceber, as iniciais de cada um desses itens foram transformadas na sigla POC3.</p><p id="2da6a9f6-fc57-4343-ae18-b6a941130dac" class="">Verificamos que as funções administrativas mantêm sua importância nas organizações do mundo atual. Ao longo do tempo, elas se resumiram a quatro funções: <strong>planejar</strong>,<strong> organizar</strong>,<strong> dirigir </strong>e<strong> controlar</strong>. Houve a fusão de comandar e coordenar, que se transformaram em dirigir, fazendo mais sentido nos dias atuais.</p><p id="61b90717-11c1-4334-bc0c-9fa3ea0afed5" class="">Para Fayol, em sua abordagem do todo da organização, existia uma proporcionalidade das funções administrativas, uma vez que elas não se concentravam somente na alta cúpula das organizações, mas se repartiam no todo. Afinal de contas, a teoria se baseia na estrutura e nas pessoas nela contidas. As funções são divididas de forma hierárquica; cada setor/cargo tem seu grau de responsabilidade. Vejamos a imagem abaixo:</p><p id="7fa239cf-90d8-430c-803b-7e5197cfaa32" class=""><strong>Seis funções básicas da empresa para Fayol</strong></p><figure id="5e68fe74-4f93-4b84-a412-fc18b738302e" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2010.png"><img style="width:747px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2010.png"/></a><figcaption>Fonte: adaptado de CHIAVENATO, 2014, p. 87.</figcaption></figure><p id="c2853419-2852-4876-a8ba-c7cc00f7d870" class="">Vejamos ainda a proporcionalidade da função administrativa:</p><figure id="183f98ca-0dd9-4490-832a-cdd938ffbe22" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2011.png"><img style="width:1403px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2011.png"/></a><figcaption>Fonte: adaptado de CHIAVENATO, 2014, p. 87.</figcaption></figure><p id="57efff0b-8561-48ce-9c23-f5b381a1ceec" class="">Não é difícil imaginar as organizações no período em que vivemos, uma vez que ainda atuam de forma planejada, ou pelo menos deveriam. Neste caso da imagem, sobre proporcionalidade das funções entre os níveis hierárquicos, a organização passou, segundo Fayol (apud CHIAVENATO, 2014 p. 88), a ter dois significados diferentes:</p><ol id="27f5351a-427d-4ffc-b165-654ef5f5d046" class="numbered-list" start="1"><li><strong>Organização como uma entidade social</strong>, na qual as pessoas interagem entre si para <strong>alcançar objetivos específicos</strong>. Nesse sentido, a palavra organização significa um empreendimento humano moldado intencionalmente para atingir determinados objetivos. As empresas são um exemplo de organização social.</li></ol><ol id="85d5ca22-9bad-4729-91f9-5e03e8c3bb83" class="numbered-list" start="2"><li><strong>Organização como função administrativa</strong>, que parte do processo administrativo (como previsão, comando, coordenação e controle). Nesse sentido, organização <strong>significa o ato de organizar, estruturar e alocar os recursos</strong>, definir os órgãos incumbidos de sua administração e estabelecer as atribuições e relações entre eles.</li></ol><p id="5f5dd461-6aa0-4190-9dcd-6e8b32aed6bb" class="">Muito, talvez tudo, de sua teoria ainda paira até os dias atuais. É difícil enxergar alguma organização sem que ela tenha, no mínimo, uma estrutura definida, mesmo que informal, além do planejamento de suas ações para alcançar os objetivos propostos.</p><p id="eeff4682-c400-46f5-83dd-e08226e7abe4" class="">Não é nosso objetivo aprofundar demais no assunto por aqui, mas convido você a conhecer mais sobre os princípios básicos da teoria clássica no seguinte link:</p><p id="4185f8db-1a7a-4cd9-aafe-b59af95840c3" class=""><strong>Pesquisar: </strong><a href="https://administradores.com.br/artigos/teoria-classica-da-administracao-segundo-henri-fayol">https://administradores.com.br/artigos/teoria-classica-da-administracao-segundo-henri-fayol</a></p><p id="fa8eb143-542d-4cd5-a83b-4ccb17f0d7ca" class="">Mas calma, ainda não terminamos esta unidade. Na próxima página, falaremos da teoria da burocracia. Assim como as teorias científica e clássica, ela também perdura até os dias atuais, com as devidas atualizações.</p><hr id="258bcd44-74fa-4ffc-8520-36e3e64f5003"/><h2 id="41465387-b5aa-4b2d-b277-d848b4a288b4" class="">1.5 Teoria da burocracia</h2><p id="296cfe45-6783-4329-96ea-4818131eb761" class="">Ah, a burocracia! Sempre ouvimos que a burocracia é ruim, deixa os processos mais lentos e “engessados”, não permite flexibilizar as coisas e que ela só atrapalha. Você com certeza já disse isso ou ouviu alguém falar assim sobre a burocracia, não é mesmo?</p><p id="f44c925b-d089-44e0-823d-0377e3a1996d" class="">Pois bem; antes de entrarmos no assunto de fato, você precisa saber que a burocracia está inserida em tudo a nossa volta. Neste curso, em sua fatura de cartão de crédito, nas contas de energia, gás e água que você paga, enfim, em tudo. É por meio da burocracia que podemos afirmar que o mundo se move. São normas, leis, documentos que regem tudo o que precisamos fazer, desde a descoberta de uma gravidez, por meio do exame beta HCG, até a certidão de óbito. Para tudo isso, a burocracia é necessária. Precisamos seguir regras em nossa vida, sejam elas impostas por leis, sejam elas impostas por simples documentos registrados em cartório, como uma assembleia de condomínio, por exemplo.</p><p id="73a5aa4f-97ef-4a1a-a15d-1a175c703f76" class="">Pois bem, acredito que já tenha ficado claro para você que a burocracia é algo que traz segurança para todos, uma vez que a veracidade da afirmação ou a assinatura em um documento podem fazer com que as coisas estejam sempre fluindo de maneira legítima e legal. Vamos à teoria!</p><p id="0e1b2e2d-db93-4986-9ad6-0bae85bc1ce7" class="">A burocracia é compreendida como uma forma de organização humana baseada na racionalidade, isto é, na adequação dos meios aos objetivos pretendidos, a fim de garantir a máxima eficiência possível no alcance desses objetivos (CHIAVENATO, 1987 apud JACOBSEN; NETO, 2009, p. 65).</p><figure id="1a1c28d9-051d-4fb7-8d20-57c949c834ae" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2012.png"><img style="width:1068px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2012.png"/></a><figcaption>Max Weber.</figcaption></figure><p id="9af35bf2-5c29-4b77-b36c-583723615a95" class="">Maximillian Carl Emil Weber (1864-1920), ou simplesmente Max Weber, como é conhecido, foi um sociólogo, advogado e historiador alemão. Ele entendia que o modelo de abordagem ideal para as organizações e sua forma de gestão era o burocrático – conhecido como o modelo racional de se administrar. Racional pelo fato de que, uma vez que o método estivesse escrito, bem definido e estudado, todos deveriam cumpri-lo a fim de que os resultados saíssem dentro daquilo outrora planejado.</p><p id="640c5032-a894-4f3a-87dd-de35f01083c0" class="">A burocracia se consolidou devido às fragilidades apresentadas pelos modelos anteriores (teoria científica e teoria clássica). As empresas estavam se tornando cada vez maiores e sua complexidade de funções e processos necessitava de uma reformulação organizada e mais formal em relação à sua forma de administração.</p><p id="e1f2dbeb-ba6a-4f40-a530-e8c24c069a22" class="">Imagine você trabalhando numa organização, seja ela qual for, que não segue padrões. O caos provavelmente é algo comum, visto que cada funcionário realiza do seu jeito alguma ação dentro da empresa. E se tivermos pessoas diferentes realizando as mesmas atividades, mas de formas diferentes, teremos também resultados diferentes daqueles planejados.</p><figure id="c6c58522-1f1f-4cb4-abce-991ab12b4537" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2013.png"><img style="width:1326px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2013.png"/></a><figcaption>A burocracia evita o caos organizacional.</figcaption></figure><p id="822ba872-87e0-4bf5-8c5e-5e386d2cd52b" class="">A ideia principal de Weber era que a burocracia se tornasse algo importante para que as grandes organizações organizassem suas atividades de maneira racional e formal. Se tudo que estivesse escrito fosse cumprido, não haveria pontos de vista burocráticos no tratamento das pessoas, fossem elas clientes, fossem funcionários. Tomemos por exemplo o setor público, no qual a burocracia impera até então.</p><p id="2768dab1-705f-4db0-afbb-711570f51246" class="">Como ocorre com todo e qualquer modelo, a burocracia, quando excessiva, não traz resultados positivos às organizações que precisam de uma tomada de decisão mais rápida e muita flexibilidade para o desenvolvimento de suas atividades. Ocorre ainda que muitos funcionários podem não demonstrar do que realmente são capazes devido a terem que respeitar fielmente aquilo que está escrito e determinado em norma.</p><p id="1fa4a026-955c-4fbb-8026-916e305c2b0b" class="">Max Weber entendia que a burocracia deveria ter as seguintes características:<div class="indented"><ol id="c97b70e9-980e-4751-8ed7-5580f36c3824" class="numbered-list" start="1"><li>O caráter legal das normas;</li></ol><ol id="084092c8-5ca0-4717-8051-79b31d19995f" class="numbered-list" start="2"><li>O caráter formal das organizações;</li></ol><ol id="984cb92a-4ff9-4bc4-9fab-3de3beb5b150" class="numbered-list" start="3"><li>A divisão do trabalho;</li></ol><ol id="a7602d6e-741b-4d4e-afa3-482f75508d33" class="numbered-list" start="4"><li>A impessoalidade no relacionamento;</li></ol><ol id="7b5aff7c-6eaf-4447-a619-1b75b1ed73e0" class="numbered-list" start="5"><li>A hierarquização da autoridade;</li></ol><ol id="782f29da-b42a-49a7-a4b5-17f4528bca67" class="numbered-list" start="6"><li>Rotinas e procedimentos padronizados;</li></ol><ol id="eb9dc09a-7ac2-40b0-9b97-0e12179c3d34" class="numbered-list" start="7"><li>Competência técnica e mérito;</li></ol><ol id="77e6716d-6648-44c9-a779-16bf23b4c2b7" class="numbered-list" start="8"><li>A especialização da administração;</li></ol><ol id="cf649f59-5cf0-4c2f-92f3-ab909dfbb1f6" class="numbered-list" start="9"><li>A profissionalização;</li></ol><ol id="6850b650-1a11-4e72-a2be-5b1a2e7fdfe3" class="numbered-list" start="10"><li>O princípio da publicidade;</li></ol><ol id="2711fb83-a5c1-4915-81f8-9792f7873ac1" class="numbered-list" start="11"><li>A previsibilidade do funcionamento.</li></ol></div></p><p id="1a4d401d-b68a-4989-8661-223e7ee43cf5" class="">De acordo com Weber (apud JACOBSEN; NETO, 2009, p. 69), as <strong>vantagens do modelo burocrático</strong> estão relacionadas a:<div class="indented"><ul id="b1c6884d-d49a-4922-ad6a-285ca0960a6f" class="bulleted-list"><li>Racionalidade definida para o alcance dos objetivos organizacionais;</li></ul><ul id="e2a75396-030a-4310-93f4-d8c16ce3e927" class="bulleted-list"><li>Precisão primordial na definição dos cargos e operações;</li></ul><ul id="6594728a-463a-4543-bb7f-b20a5ec06e1d" class="bulleted-list"><li>Rapidez e constância para tomar decisões previstas em manuais;</li></ul><ul id="fc745c14-ae7b-4181-b1f4-9123cacd20c0" class="bulleted-list"><li>Uniformidade das rotinas;</li></ul><ul id="021e0866-1c14-4b2d-875e-4b92c59d04fb" class="bulleted-list"><li>Univocidade de interpretação;</li></ul><ul id="5f55b656-09d4-41e6-9980-07e61a899d10" class="bulleted-list"><li>Continuidade da organização por meio da substituição do pessoal que é afastado;</li></ul><ul id="b789d6a6-6925-4c91-acef-74ce1c339fb0" class="bulleted-list"><li>Subordinação dos mais novos aos mais antigos e;</li></ul><ul id="52d45f2b-eaaf-4ff5-a9ed-555abdacb725" class="bulleted-list"><li>Confiabilidade conferida aos negócios em função do conhecimento que se tem das regras.</li></ul></div></p><p id="95533099-2787-416d-99d6-4fb1203244dc" class="">Porém, segundo Merton (JACOBSEN; NETO, 2009, p. 70), as <strong>disfunções da burocracia</strong> são as seguintes:<div class="indented"><ul id="d23c86d8-a51f-4d75-9d00-c48b3fc03842" class="bulleted-list"><li>Autoridade excessiva atribuída a uma só pessoa;</li></ul><ul id="28743acd-fc14-472a-a3ae-3256723bdb8e" class="bulleted-list"><li>Os procedimentos podem se tornar o fim, levando a um excesso de formalismo (papelada), e limitam a liberdade criativa;</li></ul><ul id="a6ee9362-7039-4e5a-9a13-d0f67bd9fda7" class="bulleted-list"><li>Apego demasiado às regras, provocando rigidez no comportamento dos funcionários;</li></ul><ul id="c1506aa7-1fdc-40c8-9554-e4ada45d53f0" class="bulleted-list"><li>Tratamento de todos os casos de maneira padronizada, esquecendo as particularidades de cada cliente;</li></ul><ul id="afe8b636-de2b-46d1-8cfc-52acdd93c077" class="bulleted-list"><li>Regras que são ignoradas;</li></ul><ul id="41e99a88-626f-4f96-921d-24936b11d667" class="bulleted-list"><li>A fixação da burocracia: uma vez que a burocracia é estabelecida, é difícil desmantelá-la e isso acaba causando maior resistência à mudança;</li></ul><ul id="242af900-f08a-4576-accb-8283e8c436bc" class="bulleted-list"><li>Rígida hierarquização: só quem pode decidir é quem ocupa um posto mais elevado na hierarquia, tornando lento o processo de tomada de decisão;</li></ul><ul id="340a60cb-aefd-4340-8604-4285831ad39d" class="bulleted-list"><li>Menor possibilidade de obter posições diferentes (inovação);</li></ul><ul id="ca700eb4-75a2-4a0b-b71b-d296f436abf6" class="bulleted-list"><li>Uso excessivo de símbolos – por exemplo: ter um motorista exclusivo ou um gabinete com facilidades exclusivas e ostentar tal condição; e</li></ul><ul id="a5550b7e-894b-4d26-98b0-08499ea15435" class="bulleted-list"><li>Dificuldade no atendimento e no conflito com o público, gerada principalmente quando o funcionário está preso às normas internas que deve seguir, impedindo um atendimento personalizado.</li></ul></div></p><p id="c54bce03-8594-4e6d-9198-659beb5f6746" class="">Do conteúdo aqui informado, devemos nos ater ao fato de que a burocracia está mais voltada ao lado interno da organização. Além do mais, ela não considera os meios informais existentes na organização, tampouco a imprevisibilidade do comportamento humano.</p><p id="c8fd947a-1741-49e4-8f03-069f01e20e14" class="">É de fato necessário pensar que as organizações, públicas ou privadas, devem ser regidas por leis, normas e regulamentos, a fim de evitar o caos interno e, talvez, externo. Porém, a teoria de Weber deixou as organizações com processos mais engessados e tornou seus funcionários inertes, pois precisavam ser “acionados” para que cumprissem seus papeis rotineiros e definidos em “papel”.</p><p id="64d25606-a6ac-48c1-97a0-a16f048dc5d3" class="">Para não deixar você confuso, vamos elaborar uma linha do tempo ao longo da qual cada teoria foi aparecendo, com o objetivo de tentar resolver ou melhorar as fragilidades das práticas anteriores ou um novo aspecto analisado, tal como a complexidade das organizações como um todo.</p><p id="70c961ba-b96a-4294-8b75-31ca81ffabc7" class="">Na próxima unidade, veremos as teorias voltadas ao todo da organização, e não somente à divisão do trabalho (Taylor – teoria científica), à gestão organizacional (Fayol – teoria clássica) ou à racionalização do trabalho (Weber – teoria burocrática).</p><p id="d5eb78dc-e07e-48fa-b4d8-f7cf02139a17" class="">Estudaremos as teorias dos sistemas e a estruturalista. Mas calma, esse já é um assunto para a próxima unidade. Espero que tenha compreendido esta primeira etapa até aqui e conto com você na próxima unidade, quando trataremos das teorias sistêmicas.</p><p id="e85c6f2a-7043-4f30-bfa3-dc17757291ed" class="">Acompanhe a linha do tempo e até mais!</p><figure id="af075fcb-b15d-408c-9438-b79085e77739" class="image"><a href="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2014.png"><img style="width:675px" src="Teoria%20das%20Organizacoes%20-%20Unidade%20I%20dc2c650dcb604e2281a81b2b6f9e81c1/Untitled%2014.png"/></a></figure><p id="8ecee3cc-1531-4e11-b8e4-cf8cb56affda" class="">
+</p></div></article></body></html>
