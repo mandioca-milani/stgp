@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Gestao de Pessoas e Comportamento Organizacional - Unidade I</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="77658913-c349-4732-bcf3-db55e28071bb" class="page sans"><header><h1 class="page-title">Gestao de Pessoas e Comportamento Organizacional - Unidade I</h1><table class="properties"><tbody></tbody></table></header><div class="page-body"><h2 id="97f9eb5a-db6a-41fa-b291-cc123153aacd" class="">1.1 Evolução da gestão de pessoas</h2><p id="bc32c25a-73b5-4298-983e-53dba21c1a00" class="">Vamos começar conhecendo o conceito de gestão de pessoas:</p><p id="758f1ea2-6c74-413b-af16-8320f52fa14b" class="">“A gestão de pessoas é responsável por um conjunto de políticas e práticas que permitem a conciliação de expectativas entre a organização e as pessoas para que ambas possam realizá-las ao longo do tempo” (DUTRA, 2015).</p><p id="62613f6e-b746-4320-8e1e-8988a30d8f38" class="">Ao longo do tempo, desde que as organizações existem, há um impasse entre as expectativas das pessoas e o que as organizações querem. Neste contexto, a gestão de pessoas é uma intermediadora das expectativas dos trabalhadores e das organizações. Assim, podemos nos perguntar: o que os trabalhadores querem? Uma fonte de renda, satisfação profissional, carreira, estabilidade. E o que as organizações querem? Elas focam em lucros quando são privadas, mas as organizações públicas focam na prestação de serviços à sociedade. Para intermediar essas expectativas, contamos com o setor de gestão de pessoas.</p><p id="6d21cae2-a988-420f-9229-e0efe89fd126" class="">A gestão de pessoas passou por uma transformação ao longo do tempo. Antes de 1930, as pessoas nas organizações eram atendidas por um departamento de pessoal que tinha uma função puramente contábil. Depois desse período, até 1950, o departamento de pessoal agregava a função legal alinhada com as leis trabalhistas. De 1950 a 1965, a abordagem da gestão de pessoas ampliou a atuação para uma condição mais técnica. Após essa data, e até 1985, o setor passou a ser chamado de recursos humanos, e ampliou sua atuação para uma perspectiva mais administrativa. Nesse momento, há a preocupação com liderança e qualidade de vida no trabalho. A partir de 1990, o setor passa a ser chamado de gestão de pessoas e assume uma orientação mais estratégica, sem deixar as demais funções – contábil, legal, técnica, administrativa – para trás (CHIAVENATO, 2009).</p><p id="864b5d86-69e3-4455-aab5-2e6f62a4bfe5" class="">Convido você a assistir a este vídeo, que esclarece o histórico da gestão de pessoas.</p><figure id="4e518d1f-fd96-4200-abf2-de86569cc988"><a href="https://youtu.be/prV6J6wx7Fk" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Breve histórico da gestão de pessoas</div><div class="bookmark-description">Vídeo animado sobre o surgimento e o histórico da gestão de pessoas. Voz: Felipe Côrtes Conteúdo: Felipe Côrtes Animação: Davi Simioni e Felipe Côrtes Referê...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/ba104690/img/favicon.ico" class="icon bookmark-icon"/>https://youtu.be/prV6J6wx7Fk</div></div><img src="https://i.ytimg.com/vi/prV6J6wx7Fk/hqdefault.jpg" class="bookmark-image"/></a></figure><p id="89b5a66f-6df9-47e1-a8bb-28d340d7843e" class="">Atualmente, as organizações entendem que as pessoas são os principais recursos; desta forma, estão mais preocupadas em manter os melhores funcionários, e isso impacta, de alguma forma, na melhoria dos ambientes e das relações de trabalho.</p><p id="d5b3030a-b889-47e6-b7a2-064f62916cc7" class="">Para conhecer mais sobre a evolução da gestão de pessoas, leia a unidade 1 (páginas 11 a 32) do livro Gestão de pessoas no setor público, de Oliveira e Medeiros (2016):</p><p id="ce3d87a5-051b-4b27-87a2-c1090a572c63" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%20Setor%20Publico%203ed%20GRAFICA.pdf">https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestaublico%203ed%20GRAFICA.pdf</a></p><p id="8bd262f2-3441-42f7-9fd5-690776bf2b0f" class="">Como podemos ver na figura abaixo, o sistema básico de gestão de pessoas está composto por seis subsistemas ou processos dentro das organizações:</p><p id="8fd7a84e-83ba-4087-9d38-cbfb776a13ca" class="">
+</p><figure id="c14a2cb7-a9b6-456f-b6eb-29db1c0292ca" class="image"><a href="Gestao%20de%20Pessoas%20e%20Comportamento%20Organizacional%20-%2077658913c3494732bcf3db55e28071bb/Untitled.png"><img style="width:1336px" src="Gestao%20de%20Pessoas%20e%20Comportamento%20Organizacional%20-%2077658913c3494732bcf3db55e28071bb/Untitled.png"/></a><figcaption>Processos básicos de gestão de pessoas (CHIAVENATO, 2009).</figcaption></figure><p id="64ac506a-f27b-4f78-87a0-fe96df883746" class="">Neste vídeo, você saberá mais sobre as implicações práticas da gestão de pessoas.</p><figure id="4a59c5a6-62a4-45c9-be26-7c602b73d27a"><a href="https://youtu.be/XBkbqVNRJwc" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">O que é gestão de pessoas?</div><div class="bookmark-description">Vídeo animado sobre o conceito, principais processos e objetivos e importância da gestão de pessoas. Voz: Felipe Côrtes Conteúdo: Felipe Côrtes Animação: Dav...</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/ba104690/img/favicon.ico" class="icon bookmark-icon"/>https://youtu.be/XBkbqVNRJwc</div></div><img src="https://i.ytimg.com/vi/XBkbqVNRJwc/hqdefault.jpg" class="bookmark-image"/></a></figure><p id="d7579287-dc2e-4a75-ae49-01b8421f42e4" class="">Nos próximos tópicos, veremos cada um deles.</p><h2 id="f3e51b49-b009-404b-b642-db00620f8339" class="">1.2 Processo de agregar pessoas</h2><p id="4de199c8-13b0-48b6-9ca9-15a712bf7b90" class="">Quando falamos em agregar pessoas, estamos nos referindo a trazer pessoas para dentro das organizações. Logo, são processos que visam incluir pessoas nas organizações públicas por meio de recrutamento e seleção.</p><p id="0eff8824-4892-4710-81c7-5127e024e4bf" class=""><strong>Recrutamento</strong> é o processo de comunicação da vaga para a sociedade. Na gestão pública, o recrutamento ocorre, geralmente, por meio de edital de concurso público. O recrutamento pode ser interno ou externo. O interno ocorre quando uma vaga é comunicada dentro da própria organização, para aqueles que já trabalham nela, como, por exemplo, os cargos de chefia (OLIVEIRA; MEDEIROS, 2016). O recrutamento externo, mais comum, é quando a vaga é comunicada para a sociedade.</p><p id="643e0b0d-074c-4207-8c07-7b62599d6b21" class="">Alguns fatores afetam o processo do recrutamento:</p><ul id="c77fc606-3e4d-4085-890c-3f2794fb5c18" class="bulleted-list"><li>Rotatividade, que ocorre quando uma vaga tem pouco tempo de ocupação por profissionais;</li></ul><ul id="e0cab69e-6520-4a26-96e0-95aef2cac3e7" class="bulleted-list"><li>Aumento de demanda de trabalho, que reforça a necessidade de recrutar mais pessoas.</li></ul><p id="e4a57c65-39ea-4390-a3c8-264b3a9320f1" class=""><strong>Seleção</strong> é o processo de selecionar o profissional mais adequado dentre aqueles que se interessaram pela vaga. No setor público, as provas de um concurso (escrita, física ou de títulos) são, geralmente, os meios de seleção mais utilizados. Para realizar uma boa seleção, é importante ter um desenho de cargo alinhado com as competências estratégicas de que as organizações públicas necessitam para cumprir sua missão (ao longo da nossa disciplina, voltaremos a tratar sobre essa visão estratégica). Existem vários instrumentos para fazer uma seleção, como entrevista, testes de conhecimento, testes psicológicos, entre outros (OLIVEIRA; MEDEIROS, 2016).</p><p id="c03fe136-dc92-4eac-a16a-8b352a787b6f" class="">Para conhecer mais sobre esse processo no setor público, sugiro a leitura da unidade 1, a partir da página 58, do livro Gestão de pessoas no setor público, de Oliveira e Medeiros (2016):</p><p id="a0cef356-e5af-4a3e-b617-2aa3efa7879b" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%20Setor%20Publico%203ed%20GRAFICA.pdf">https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoco%203ed%20GRAFICA.pdf</a></p><h2 id="9b9feca8-ad57-4aa8-a222-61974b0975c9" class="">1.3 Processo de aplicar pessoas</h2><p id="31acc03a-bfe9-4df1-b5bd-a0b3da4005c5" class="">Quando falamos em aplicar pessoas, estamos nos referindo à introdução e ambientação dessas pessoas na organização. Este processo está conectado ao processo de agregar pessoas, pois se estabelece uma sequência em que a pessoa é recrutada, selecionada e, quando contratada, precisa ser aplicada ou integrada à organização. Logo, aplicar a pessoa é definir as atividades que ela realizará na organização.</p><p id="3c7081ae-c271-4e66-80ff-1476224d5ede" class="">Desta forma, precisamos nos atentar ao desenho organizacional, ou seja, coordenar as funções que cada pessoa irá executar. Para isso, é necessário seguir três passos da aplicação: <strong>orientar</strong> o funcionário contratado sobre as regras da organização; <strong>socializá-lo</strong> nos demais ambientes da organização, ou seja, integrá-lo ao grupo de trabalho; e esclarecer o funcionário sobre o <strong>desenho do cargo</strong> que ele acaba de assumir, bem como as atividades a cumprir (OLIVEIRA; MEDEIROS, 2016; CHIAVENATO, 2009).</p><p id="4e25f102-e4fc-482c-adc9-4a4dd89eaab0" class="">Para conhecer mais sobre <strong>desenho de cargo</strong> no setor público, sugiro a leitura da unidade 1 (páginas 45 a 50) do livro Gestão de pessoas no setor público, de Oliveira e Medeiros (2016):</p><p id="c0596420-82b8-4ba4-899f-d569791e0bf9" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%20Setor%20Publico%203ed%20GRAFICA.pdf">https://educapes.capes.gov.br/bitstreestao%20Pessoas%20Setlico%203ed%20GRAFICA.pdf</a></p><h2 id="307892e7-49ab-4cc1-99dd-c3e3114e6bdf" class="">1.4 Processo de recompensar pessoas</h2><p id="225ab85a-3b83-49f2-bd5e-6195951f7935" class="">Quando falamos em recompensar pessoas, estamos nos referindo a remuneração e incentivos que essas pessoas recebem da organização. Recompensar pessoas na organização está relacionado a satisfazer as necessidades individuais mais elevadas. Nesta recompensa, estão incluídos a remuneração, os incentivos e os benefícios. As recompensas podem ser financeiras e não financeiras (MAIA et al., 2017).</p><p id="9f804ff7-b65a-442e-b7d1-3d39b131cd69" class="">Para compreender melhor, assista ao vídeo</p><figure id="31fc2fab-8e8b-4eef-b05f-16f1653ae617"><a href="https://youtu.be/94r00sKF4FY" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Gestão de Pessoas - Processos de recompensar pessoas</div><div class="bookmark-description">DICAS, QUESTÕES COMENTADAS E MATERIAIS ACESSE MEU GRUPO EXCLUSIVO NO TELEGRAMhttps://t.me/profmarcoadm</div></div><div class="bookmark-href"><img src="https://www.youtube.com/s/desktop/ba104690/img/favicon.ico" class="icon bookmark-icon"/>https://youtu.be/94r00sKF4FY</div></div><img src="https://i.ytimg.com/vi/94r00sKF4FY/hqdefault.jpg" class="bookmark-image"/></a></figure><p id="75f81526-ba11-4149-829c-aae076a89f6c" class="">Leia também, da página 73 à 79, o livro Gestão de pessoas no setor público (MAIA et al., 2017):</p><p id="18d0b1a8-95b4-441d-963b-9800ca85425e" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/206203/2/Gest%C3%A3o%20de%20Pessoas%20no%20Setor%20P%C3%BAblico%20-%20UAB%20-%20para%20WEB.pdf">https://educapes.capes.gov.br/bitstream/capes/206203/2/Gest%Coas%20no.pdf</a></p><h2 id="6c78cfe8-c32c-480f-9b5b-d6c1145d4108" class="">1.5 Processo de desenvolver pessoas</h2><p id="1723d96b-e99e-4621-80a7-6df734f2024b" class="">Quando falamos em desenvolver pessoas, estamos nos referindo a treinamentos e desenvolvimento pessoal e profissional dessas pessoas na organização. O processo de desenvolver pessoas tem relação com programas de desenvolvimento e treinamento que visam promover o crescimento da pessoa na carreira, a fim de que consiga ter mais adequação na atividade de trabalho (DUTRA, 2015). E por que as organizações precisam treinar e desenvolver pessoas? Para gerar melhores resultados ligados à produtividade e à satisfação do indivíduo na organização.</p><p id="d9b701c6-2657-4c97-b04b-be4d277c61ec" class="">Assim, a gestão de pessoas quer que o indivíduo e a organização atuem em conjunto para alcançar seus objetivos. Mas como a organização identificará em qual habilidade o profissional precisa de treinamento? As organizações passam a conhecer as necessidades de treinamento de seus profissionais por meio da avaliação de desempenho. Desta forma, o foco do treinamento é fazer com que os funcionários desempenhem seu trabalho da melhor forma possível (OLIVEIRA; MEDEIROS, 2016).</p><p id="8389c309-8bf2-4e7c-93aa-8f7c41a24c0f" class="">Mas qual a grande diferença entre treinamento e desenvolvimento? Muitas pessoas confundem os dois termos, então vamos conhecer cada um deles.</p><p id="c2535056-ac66-4f26-a789-43f5c47e0697" class=""><strong>Treinamento</strong> é o processo pelo qual uma pessoa é preparada para desempenhar, com qualidade, as tarefas específicas do cargo que ocupa. Assim, ele é orientado para o presente, está focado na função atual, em melhorar as habilidades e capacidades que são falhas hoje. Já o <strong>desenvolvimento</strong> exige um entendimento mais amplo: é um processo que começa no agora, mas reflete num desenvolvimento pessoal e profissional no futuro. Assim, um conjunto de habilidades e capacidades serão aprendidas no decorrer do trabalho e podem gerar condições para que o funcionário se desenvolva de tal modo que, no futuro, possa assumir cargos mais relevantes (DUTRA, 2015).</p><p id="0a3f759a-99c2-48c5-8aa1-61403a5e8731" class="">Para compreender melhor, leia da página 79 à 90 do livro Gestão de pessoas no setor público (OLIVEIRA; MEDEIROS, 2016):</p><p id="624cd6fe-b20d-4e12-bc48-4ad8898ff29e" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%20Setor%20Publico%203ed%20GRAFICA.pdf">https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%2.pdf</a></p><h2 id="571a980d-8039-46f7-8f8b-48ee7f810a3b" class="">1.6 Processo de manter pessoas</h2><p id="48661d71-c3ce-45da-910f-277f406e27df" class="">Quando falamos em manter pessoas, estamos nos referindo ao estabelecimento de um ambiente de trabalho harmônico e prazeroso para se trabalhar. Esse processo orienta a criar condições ambientais e psicológicas satisfatórias para que as pessoas possam realizar suas atividades.</p><p id="7b51f58f-db6e-4539-9591-9cc506bb8509" class="">Para manter as pessoas, é importante implantar mecanismos de qualidade de vida no trabalho (QVT). A QVT está intimamente ligada à satisfação com o trabalho, à perspectiva de futuro na organização, ao salário recebido, ao reconhecimento pelos bons resultados, aos benefícios que se tem, à autonomia no trabalho e às formas de participação permitida nas decisões do trabalho. De todos esses fatores, aqueles ligados a reconhecimento e satisfação são os que mais ajudam a manter os profissionais nas organizações (BERGUE, 2010).</p><p id="40491f95-ffc9-4485-9c74-5ce6133fb624" class="">Para saber mais, leia da página 109 à 120 do livro Gestão de pessoas no setor público (OLIVEIRA; MEDEIROS, 2016):</p><p id="bfdc70c4-2a5f-483e-9320-4e94538850b3" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas%20Setor%20Publico%203ed%20GRAFICA.pdf">https://educapes.capes.gov.br/bitstream/capes/401420/1/Gestao%20Pessoas.pdf</a></p><h2 id="79bf70e8-98a9-4506-bb6c-0febfff92da3" class="">1.7 Processo de monitorar pessoas</h2><p id="b5aa2efe-f11b-47be-9d13-2770cbc22efb" class="">Quando falamos em monitorar pessoas, estamos nos referindo à sistematização das informações de pessoas e processos de avaliação na organização. O foco deste processo é monitorar e avaliar o desempenho das pessoas.</p><p id="e25393d9-f0de-4aa7-ab19-a8eaa46a049b" class="">A avaliação de desempenho é a apreciação do desempenho do profissional de acordo com o desenho dos cargos e o desempenho esperado na organização. Esses resultados podem ser inseridos como informações em sistemas compartilhados entre o setor de gestão de pessoas e os gestores das unidades. Somente com essas informações os gestores podem atuar de forma objetiva no desenvolvimento dos trabalhadores (MAIA et al., 2017).</p><p id="5bfa1679-6652-443d-bf5d-953568d09339" class="">Assim, a avaliação de desempenho humano precisa ser um mecanismo que proporcione oportunidade de o profissional melhorar.</p><p id="2a5f741c-7ee8-4aff-89bf-b2a51c6cada8" class="">Convido você a ler um pouco mais sobre a avaliação de desempenho nas organizações públicas no livro Gestão de pessoas no setor público (MAIA et al., 2017), páginas 83 a 90.</p><p id="26fe95fa-a793-468b-99a2-4c37111e434f" class=""><a href="https://educapes.capes.gov.br/bitstream/capes/206203/2/Gest%C3%A3o%20de%20Pessoas%20no%20Setor%20P%C3%BAblico%20-%20UAB%20-%20para%20WEB.pdf">https://educapes.capes.gov.br/bitstream/capes/206203/2/Gest%C3%A3o%20de%20Pessoas%20no.pdf</a> </p><p id="426755b3-4dbc-485e-a574-51363ddbe4e4" class="">
+</p></div></article></body></html>
